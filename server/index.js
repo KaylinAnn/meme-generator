@@ -1,9 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const memes = require("./controller/memes");
+const randomPic = require("./controller/random_pic");
 const app = express();
 
 app.use(bodyParser.json());
+
+app.get("/api/random", randomPic.read);
 
 app.post("/api/memes", memes.create);
 app.get("/api/memes", memes.read);
