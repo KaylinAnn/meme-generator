@@ -3,8 +3,8 @@ let id = 0;
 
 module.exports = {
   create: (req, res) => {
-    const { image, text } = req.body;
-    memes.push({ image, text, id });
+    const { url, title } = req.body;
+    memes.push({ url, title, id });
     id++;
     res.status(200).send(memes);
   },
@@ -14,13 +14,13 @@ module.exports = {
   },
 
   update: (req, res) => {
-    const { text, image } = req.body;
+    const { title, url } = req.body;
     let index = memes.findIndex(meme => meme.id == req.params.id);
     let meme = memes[index];
 
     memes[index] = {
-      image: image || meme.image,
-      text: text || meme.text,
+      url: url || meme.url,
+      title: title || meme.title,
       id: meme.id
     };
 
