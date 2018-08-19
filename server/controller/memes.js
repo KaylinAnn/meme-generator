@@ -1,42 +1,35 @@
-const hardcodedMemes = [
-  {
-    image: "",
-    text: "Use the approved poses if you wanna be a memer!",
-    id: 420
-  },
-  {
-    image: "",
-    text: "We're bout to get shwifty in here!",
-    id: 421
-  },
-  {
-    image: "",
-    text: "peace sign bunny ears... fake weiner!",
-    id: 422
-  }
-];
+let memes = [];
+let id = 0;
 
 module.exports = {
-  create: (req, res) => {},
+  create: (req, res) => {
+    const { image, text } = req.body;
+    memes.push({ image, text, id });
+    id++;
+    res.status(200).send(memes);
+  },
 
   read: (req, res) => {
-    res.status(200).send(hardcodedMemes);
+    res.status(200).send(memes);
   },
 
   update: (req, res) => {
-    const { text } = req.body;
-    let index = hardcodedMemes.findIndex(meme => meme.id == req.params.id);
-    console.log(index);
-    let meme = hardcodedMemes[index];
+    const { text, image } = req.body;
+    let index = memes.findIndex(meme => meme.id == req.params.id);
+    let meme = memes[index];
 
-    hardcodedMemes[index] = {
-      image: meme.image,
+    memes[index] = {
+      image: image || meme.image,
       text: text || meme.text,
       id: meme.id
     };
 
-    res.status(200).send(hardcodedMemes);
+    res.status(200).send(memes);
   },
 
-  delete: (req, res) => {}
+  delete: (req, res) => {
+    let index = memes.findIndex(meme => meme.id == req.params.id);
+    memes.splice(index, 1);
+    res.status(200).send(memes);
+  }
 };
