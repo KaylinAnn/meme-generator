@@ -8,6 +8,14 @@ class MemeItem extends Component {
     });
   }
 
+  updateMeme() {
+    axios
+      .put(`/api/memes/${this.props.meme.id}`, { title: this.refs.title.value })
+      .then(memes => {
+        this.props.setMemes(memes.data);
+      });
+  }
+
   render() {
     return (
       <li className="meme">
@@ -15,6 +23,8 @@ class MemeItem extends Component {
         <img src={this.props.meme.url} />
         {this.props.meme.title}
         <button onClick={this.deleteMeme.bind(this)}>Delete Meme</button>
+        <input type="text" ref="title" />
+        <button onClick={this.updateMeme.bind(this)}>Update</button>
       </li>
     );
   }
