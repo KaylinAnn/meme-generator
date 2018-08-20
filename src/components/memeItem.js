@@ -13,6 +13,7 @@ class MemeItem extends Component {
       .put(`/api/memes/${this.props.meme.id}`, { title: this.refs.title.value })
       .then(memes => {
         this.props.setMemes(memes.data);
+        this.refs.title.value = "";
       });
   }
 

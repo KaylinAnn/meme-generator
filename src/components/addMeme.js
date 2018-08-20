@@ -57,9 +57,11 @@ class AddMeme extends Component {
             name: this.state.newMeme.name
           }
         },
+
         function() {
           this.createMeme();
           this.getRandomMeme();
+          this.refs.title.value = "";
         }
       );
     }
@@ -77,7 +79,9 @@ class AddMeme extends Component {
             <br />
             <input type="text" ref="title" />
           </div>
-          <button onClick={this.handleInput}> Create </button>
+          <button className="createButton" onClick={this.handleInput}>
+            Create
+          </button>
         </div>
       </div>
     );
