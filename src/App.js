@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Memes from "./components/memes";
 import AddMeme from "./components/addMeme";
+import "./reset.css";
 
 import axios from "axios";
 
@@ -24,12 +25,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1> Kaylins Meme Generator</h1>
-        <AddMeme setMemes={this.handleSetMemes} />
-        {/* {createdMeme.name && <button onClick={this.getMemes}>GET memes</button>}
-        {create && <button onClick={this.getMemes}>GET memes</button>} */}
-
-        <Memes setMemes={this.handleSetMemes} memes={this.state.memes} />
+        <div className="main">
+          <div className="head">
+            <header>
+              <h1 className="title"> Kaylins Meme Generator</h1>
+            </header>
+          </div>
+          <div className="addMeme">
+            <AddMeme setMemes={this.handleSetMemes} />
+          </div>
+          <div className="memeList">
+            <Memes setMemes={this.handleSetMemes} memes={this.state.memes} />
+          </div>
+        </div>
       </div>
     );
   }

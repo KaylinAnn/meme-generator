@@ -18,14 +18,20 @@ class MemeItem extends Component {
 
   render() {
     return (
-      <li className="meme">
-        {this.props.meme.name}
+      <ul className="meme">
+        <div> {this.props.meme.name}</div>
         <img src={this.props.meme.url} />
-        {this.props.meme.title}
-        <button onClick={this.deleteMeme.bind(this)}>Delete Meme</button>
-        <input type="text" ref="title" />
-        <button onClick={this.updateMeme.bind(this)}>Update</button>
-      </li>
+        <div>{this.props.meme.title}</div>
+        <div className="editInfo">
+          <button className="deleteButton" onClick={this.deleteMeme.bind(this)}>
+            Delete Meme
+          </button>
+          <input type="text" ref="title" />
+          <button className="updateButton" onClick={this.updateMeme.bind(this)}>
+            Update
+          </button>
+        </div>
+      </ul>
     );
   }
 }

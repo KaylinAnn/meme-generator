@@ -68,15 +68,17 @@ class AddMeme extends Component {
   render() {
     return (
       <div className="App">
-        <h2>Add Meme</h2>
-        <h3>{this.state.newMeme.name}</h3>
-        <img src={this.state.newMeme.url} alt="" />
-        <div>
-          <label>Caption</label>
-          <br />
-          <input type="text" ref="title" />
+        <div className="addMemeMain">
+          <h2>Add Meme</h2>
+          <h3>{this.state.newMeme.name}</h3>
+          <img className="createImg" src={this.state.newMeme.url} alt="" />
+          <div className="caption">
+            <label>Caption</label>
+            <br />
+            <input type="text" ref="title" />
+          </div>
+          <button onClick={this.handleInput}> Create </button>
         </div>
-        <button onClick={this.handleInput}> Create </button>
       </div>
     );
   }
