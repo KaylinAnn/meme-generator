@@ -45,7 +45,7 @@ class AddMeme extends Component {
     });
   }
 
-  handleInput(e) {
+  handleInput() {
     if (this.refs.title.value === "") {
       alert("Title is required");
     } else {
@@ -77,7 +77,7 @@ class AddMeme extends Component {
           <div className="caption">
             <label>Caption</label>
             <br />
-            <input type="text" ref="title" />
+            <input type="text" ref="title" placeholder="" />
           </div>
           <button className="createButton" onClick={this.handleInput}>
             Create

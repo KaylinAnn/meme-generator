@@ -27,7 +27,7 @@ class MemeItem extends Component {
           <button className="deleteButton" onClick={this.deleteMeme.bind(this)}>
             Delete Meme
           </button>
-          <input type="text" ref="title" />
+          <input type="text" ref="title" placeholder="" />
           <button className="updateButton" onClick={this.updateMeme.bind(this)}>
             Update
           </button>

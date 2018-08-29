@@ -4,8 +4,6 @@ import Memes from "./components/memes";
 import AddMeme from "./components/addMeme";
 import "./reset.css";
 
-import axios from "axios";
-
 class App extends Component {
   constructor() {
     super();
